@@ -13,13 +13,16 @@ const App = () => {
       { /* Password Display */}
       <div className='flex mb-4'>
          <input type="text" placeholder='Generated Password' className='flex-1 bg-gray-800 border border-gray-700 
-         rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500' />
+         rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500' readOnly />
+
+        
+           <button className='bg-indigo-600 hover:bg-indigo-700 px-4 rounded-r-lg transition'>
+            Copy
+           </button>
+
       </div>
 
-
-
-
-       </div>
+     </div>
     </div>
   )
 }
