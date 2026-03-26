@@ -32,6 +32,28 @@ const App = () => {
           className="w-full accent-indigo-600"/>
       </div>
 
+     {/* Option*/}
+     <div className='space-y-3 nb-6'>
+            <label className='flex items-center justify-between cursor-pointer'>
+               <span>Include UpperCase </span>
+               <input type="chechbox" className='accent-indigo-600' />
+            </label>
+
+                 <label className='flex items-center justify-between cursor-pointer'>
+               <span>Include LowerCase </span>
+               <input type="chechbox" className='accent-indigo-600' />
+            </label>
+
+                 <label className='flex items-center justify-between cursor-pointer'>
+               <span>Include Numbers </span>
+               <input type="chechbox" className='accent-indigo-600' />
+            </label>
+
+                 <label className='flex items-center justify-between cursor-pointer'>
+               <span>Include Symbols </span>
+               <input type="chechbox" className='accent-indigo-600' />
+            </label>
+     </div>
 
      </div>
     </div>
