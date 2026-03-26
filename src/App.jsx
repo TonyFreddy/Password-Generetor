@@ -1,10 +1,57 @@
-import React from 'react'
+import {useEffect , useState} from 'react'
 
 const App = () => {
+
+
+  const [length , setLength] = useState(16);
+  const [includeUpper , setIncludeUpper] = useState(true);
+  const [includeLower , setIncludeLower] = useState(true);
+  const [includeNumbers , setIncludeNumbers] = useState(true);
+  const [includeSymbols , setIncludeSymbols] = useState(false);
+  const [password , setPassword] =useState("");
+  const [copied , setCopied ] = useState(false);
+
+
+  const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  const numberChars = "0123456789";
+  const Symbols = "^$£%µ!#{}[]<>()_?";
+
+  const generatePassword = () => {
+    let chars = "" ;
+
+    if (includeUpper) chars == upperChars;
+    if (includeLower) chars == lowerChars;
+    if (includeNumbers) chars == numberChars;
+    if (includeSymbols) chars == Symbols;
+    
+     if(!chars) {
+    setPassword("");
+    return;
+  }
+    
+  let generated = "";
+   for (let i = 0 ; i< length ; i++ ) {
+    generated += chars[Math.floor(Math.random() * chars.length)];
+   }
+     setPassword(generated);
+
+  };
+
+ 
+useEffect( ()=> {
+        generatePassword();
+}, 
+[length , includeLower , includeNumbers , includeUpper , includeSymbols]
+);
+
+
   return (
     <div className='min-h-screen bg-gray-950 flex items-center justify-center px-4'>
       <div className='bg-gray-900 text-gray-200 w-full max-w-md border rounded-2xl shadow-xl border-gray-800 p-8'>
 
+
+        {/* Title */}
         <h1 className='text-2xl font-bold text-center mb-5'>
           Password Generator
         </h1>
@@ -45,7 +92,7 @@ const App = () => {
 
        
         {/* Generate button */}
-        <button className='w-full bg-indigo-600 hover:bg-indigo-700 py-2 rounded-lg font-semibold transition'>
+        <button className='w-full bg-indigo-600 hover:bg-indigo-700 py-2 rounded-lg font-semibold transition cursor-pointer'>
           Generate Password
         </button>
 
